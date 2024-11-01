@@ -8,8 +8,6 @@ public class runPlayer : MonoBehaviour
     public Button StartBtn;
     public static bool IsStart;
     public GameObject[] player;
-
-    bool Win;
     // Start is called before the first frame update
     void Start()
     {

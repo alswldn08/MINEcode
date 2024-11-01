@@ -9,12 +9,21 @@ public class UIManager : MonoBehaviour
     public Button MenuBtn;
     public Button ExitMenuBtn;
     public Image MenuPG;
+    public GameObject ImageS;
+
+    public Image creditPG;
+
+    private Player Player;
     // Start is called before the first frame update
     void Start()
     {
+        Player = GetComponent<Player>();
+
         MenuBtn.onClick.AddListener(OnclickMenuBtn);
         ExitMenuBtn.onClick.AddListener(OnclickExitMenuBtn);
         MenuPG.gameObject.SetActive(false);
+        creditPG.gameObject.SetActive(false);
+        ImageS.gameObject.SetActive(true);
     }
 
 
@@ -33,8 +42,20 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void EnableCreditUI()
     {
-        
+        if (creditPG != null)
+        {
+            creditPG.gameObject.SetActive(true); // UI 이미지 활성화
+            ImageS.gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateONcreditFromPlayer()
+    {
+        if (Player != null)
+        {
+            Player.ONcredit(); // Player의 ONcredit 호출
+        }
     }
 }
