@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -10,13 +11,13 @@ public class UIManager : MonoBehaviour
     public Button ExitMenuBtn;
     public Image MenuPG;
     public GameObject ImageS;
-
     public Image creditPG;
 
     private Player Player;
     // Start is called before the first frame update
     void Start()
-    {
+    {  
+
         Player = GetComponent<Player>();
 
         MenuBtn.onClick.AddListener(OnclickMenuBtn);
@@ -48,7 +49,9 @@ public class UIManager : MonoBehaviour
         {
             creditPG.gameObject.SetActive(true); // UI 이미지 활성화
             ImageS.gameObject.SetActive(false);
+
         }
+        
     }
 
     public void ActivateONcreditFromPlayer()
