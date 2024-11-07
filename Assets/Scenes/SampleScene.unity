@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   text: {fileID: 116398462}
+  colorName: yellow
 --- !u!1 &36403095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   text: {fileID: 116398462}
+  colorName: orange
 --- !u!1 &172387210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,7 +2336,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -4.003152, z: -10}
+  m_LocalPosition: {x: -8, y: -0.0031518936, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3617,6 +3619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   text: {fileID: 116398462}
+  colorName: green
 --- !u!1 &965587287
 GameObject:
   m_ObjectHideFlags: 3
@@ -5878,6 +5881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   text: {fileID: 116398462}
+  colorName: red
 --- !u!82 &1923152362 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 695430515858635639, guid: 3d15730e723bc034a83dd1ce2ebbe40f, type: 3}
@@ -6343,6 +6347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   text: {fileID: 116398462}
+  colorName: blue
 --- !u!1 &2121908815
 GameObject:
   m_ObjectHideFlags: 0

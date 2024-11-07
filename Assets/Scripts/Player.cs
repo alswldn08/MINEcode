@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,9 @@ public class Player : MonoBehaviour
 
     public Text text;
 
-    private bool First = false;
+    public string colorName;
+
+    private static bool First = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -76,10 +79,10 @@ public class Player : MonoBehaviour
             // 최초로 충돌한 경우에만 우승 처리
             if (!First)
             {
-                text.text = "1st: " + gameObject.name;  // 플레이어의 이름을 우승자로 기록
-                Debug.Log("우승");
+                text.text = "1st:<color="+colorName+">" +gameObject.name+"</color>"; //우승자 이름 띄우기
+                Debug.Log("<color="+colorName+">우승</color>");
 
-                First = true;
+                First = true; //결승선 충돌 입력 정지
             }
         }
     }
