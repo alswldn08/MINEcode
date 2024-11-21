@@ -106,14 +106,11 @@ public class Player : MonoBehaviour
             }
         }
     }
-
     private void UpdateMoneyUI()
     {
         Betting_Main.NowMoneyText.text = "³²Àº ÀÜ¾×: " + Betting_Main.NowMoney;
         Betting_Main.NowMoneyText2.text = "³²Àº ÀÜ¾×: " + Betting_Main.NowMoney;
     }
-
-
     public void ONcredit()
     {
         if (uiManager != null)
