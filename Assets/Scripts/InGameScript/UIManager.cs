@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     {
         if (creditPG != null)
         {
-            creditPG.gameObject.SetActive(true); // UI 이미지 활성화
+            creditPG.gameObject.SetActive(true);
             ImageS.gameObject.SetActive(false);
 
         }
@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     {
         if (Player != null)
         {
-            Player.ONcredit(); // Player의 ONcredit 호출
+            Player.ONcredit(); // Player의 ONcredit
         }
     }
 }
