@@ -9,9 +9,6 @@ public class Betting_Main : MonoBehaviour
     [Header("버튼")]
     public Button ConfirmBet;
 
-    
-    public static GameObject[] player;
-
     public InputField BettingText; //배팅값 입력창
     public Text NowMoneyText; //배팅창에서 텍스트 출력
     public Text NowMoneyText2; //인게임에서 텍스트 출력
@@ -20,8 +17,8 @@ public class Betting_Main : MonoBehaviour
     public float NowMoney = 1000000; //현재 잔액
     public float BettingAmount; //배팅한 금액
 
-    private bool startBet = false; //배팅 시작
-    public static bool IsStart; //경마 시작
+    public bool startBet = false; //배팅 시작
+    public bool IsStart = false; //경마 시작
 
     private Player Player; //참조
     private string selectedHorse;
@@ -35,13 +32,15 @@ public class Betting_Main : MonoBehaviour
     public string BettingWinner = "";
     void Start()
     {
+
+
         ConfirmBet.interactable = false;
         ConfirmBet.onClick.AddListener(ConfirmBtn);
 
         BettingPG.gameObject.SetActive(true);
         UpdateMoneyUI();
 
-        BettingText.onValueChanged.AddListener(ValidateBettingAmount);
+        BettingText.onValueChanged.AddListener(Betting);
 
         //버튼
         red.onClick.AddListener(redBtn);
@@ -50,9 +49,11 @@ public class Betting_Main : MonoBehaviour
         green.onClick.AddListener(greenBtn);
         blue.onClick.AddListener(blueBtn);
 
+        SoundManager.Instance.PlaySound(2);
     }
 
-    private void ValidateBettingAmount(string input)
+
+    private void Betting(string input)
     {
         if (float.TryParse(input, out BettingAmount))
         {
@@ -78,6 +79,8 @@ public class Betting_Main : MonoBehaviour
         BettingPG.gameObject.SetActive(false);
         startBet = true;
         IsStart = true;
+
+        SoundManager.Instance.PlaySound(1);
     }
 
     private void FixedUpdate()
@@ -95,7 +98,6 @@ public class Betting_Main : MonoBehaviour
         {
             NowMoney -= BettingAmount;
             UpdateMoneyUI();
-            Debug.Log($"배팅 성공! 남은 잔액: {NowMoney}");
         }
         else
         {

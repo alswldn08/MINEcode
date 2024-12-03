@@ -8,6 +8,8 @@ using UnityEditor.Purchasing;
 
 public class VirtualCamera : MonoBehaviour
 {
+    private Player player;
+
     [Header("시점 이동")]
     public Button plyer0;
     public Button plyer1;
@@ -25,6 +27,8 @@ public class VirtualCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<Player>();
+
         plyer0.onClick.AddListener(plyer0Btn);
         plyer1.onClick.AddListener(plyer1Btn);
         plyer2.onClick.AddListener(plyer2Btn);
@@ -60,7 +64,41 @@ public class VirtualCamera : MonoBehaviour
         SetCameraPriority(view4);
     }
 
-    
+    private void FixedUpdate()
+    {
+        if (Player.Win == true)
+        {
+            Move();
+        }
+    }
+
+    public void Move()
+    {
+        if (Player.First == true)
+        {
+            if (Player.WinnerName == "Red")
+            {
+                SetCameraPriority(view0);
+            }
+            if (Player.WinnerName == "Orange")
+            {
+                SetCameraPriority(view1);
+            }
+            if (Player.WinnerName == "Yellow")
+            {
+                SetCameraPriority(view2);
+            }
+            if (Player.WinnerName == "Green")
+            {
+                SetCameraPriority(view3);
+            }
+            if (Player.WinnerName == "Blue")
+            {
+                SetCameraPriority(view4);
+            }
+        }
+    }
+
     private void SetCameraPriority(CinemachineVirtualCamera targetCamera)
     {
         view0.Priority = 0;
@@ -70,11 +108,5 @@ public class VirtualCamera : MonoBehaviour
         view4.Priority = 0;
 
         targetCamera.Priority = 10;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

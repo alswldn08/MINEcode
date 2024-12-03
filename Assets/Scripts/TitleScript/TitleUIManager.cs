@@ -16,6 +16,7 @@ public class TitleUIManager : MonoBehaviour
     [Header("¿ÃπÃ¡ˆ")]
     public Image SettingPG;
     public Image HelpPG;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class TitleUIManager : MonoBehaviour
 
         SettingPG.gameObject.SetActive(false);
         HelpPG.gameObject.SetActive(false);
+        
     }
 
     private void ClickStartBtn()
