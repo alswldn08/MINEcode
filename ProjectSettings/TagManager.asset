@@ -6,6 +6,12 @@ TagManager:
   tags:
   - FinishLine
   - FeverTime
+  - Red
+  - Orange
+  - Yellow
+  - Green
+  - Blue
+  - EventLine
   layers:
   - Default
   - TransparentFX

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
-using UnityEditor.Purchasing;
-
 
 public class VirtualCamera : MonoBehaviour
 {
@@ -24,7 +22,13 @@ public class VirtualCamera : MonoBehaviour
     public CinemachineVirtualCamera view3;
     public CinemachineVirtualCamera view4;
 
-    // Start is called before the first frame update
+    private CinemachineVirtualCamera activeCamera;
+
+    public Transform finishLine;
+
+    [Header("UI")]
+    public Text distanceText;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -35,30 +39,41 @@ public class VirtualCamera : MonoBehaviour
         plyer3.onClick.AddListener(plyer3Btn);
         plyer4.onClick.AddListener(plyer4Btn);
 
-
         view0.Priority = 0;
         view1.Priority = 0;
         view2.Priority = 10;
         view3.Priority = 0;
         view4.Priority = 0;
+
+        activeCamera = view2;
+        finishLine = GameObject.FindGameObjectWithTag("FinishLine").transform;
+
+        if (distanceText == null)
+        {
+            Debug.LogError("Distance Text UI is not assigned!");
+        }
     }
 
     void plyer0Btn()
     {
         SetCameraPriority(view0);
     }
+
     void plyer1Btn()
     {
         SetCameraPriority(view1);
     }
+
     void plyer2Btn()
     {
         SetCameraPriority(view2);
     }
+
     void plyer3Btn()
     {
         SetCameraPriority(view3);
     }
+
     void plyer4Btn()
     {
         SetCameraPriority(view4);
@@ -69,6 +84,16 @@ public class VirtualCamera : MonoBehaviour
         if (Player.Win == true)
         {
             Move();
+        }
+
+        if (activeCamera != null && finishLine != null)
+        {
+            float distance = Mathf.Abs(activeCamera.transform.position.x - finishLine.position.x);
+
+            if (distanceText != null)
+            {
+                distanceText.text = "°á½Â¼±: " + distance.ToString("F2") + "M";
+            }
         }
     }
 
@@ -108,5 +133,7 @@ public class VirtualCamera : MonoBehaviour
         view4.Priority = 0;
 
         targetCamera.Priority = 10;
+
+        activeCamera = targetCamera;
     }
 }

@@ -11,19 +11,24 @@ public class UIManager : MonoBehaviour
     [Header("메뉴")]
     public Button MenuBtn;
     public Button ExitMenuBtn;
-    public Image MenuPG;
-    public GameObject ImageS;
-    public Image creditPG;
     public Button GoTitle;
     public Button RePlay;
 
+    [Header("이미지")]
+    public Image MenuPG;
+    public Image creditPG;
+    public Image EndingPG;
+
+    public GameObject ImageS;
+
     private Player player;
     private Betting_Main Betting;
-    public Image EndingPG;
-    public bool reset = false;
+    private ItemScript itemScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        itemScript = GetComponent<ItemScript>();
         Betting = GetComponent<Betting_Main>();
         player = GetComponent<Player>();
 
@@ -35,14 +40,12 @@ public class UIManager : MonoBehaviour
         GoTitle.onClick.AddListener(OnClickGoTitle);
         MenuBtn.onClick.AddListener(OnclickMenuBtn);
         ExitMenuBtn.onClick.AddListener(OnclickExitMenuBtn);
+        RePlay.onClick.AddListener(OnClickRePlay);
         MenuPG.gameObject.SetActive(false);
         creditPG.gameObject.SetActive(false);
         ImageS.gameObject.SetActive(true);
-
         EndingPG.gameObject.SetActive(false);
-        RePlay.onClick.AddListener(OnClickRePlay);
     }
-
 
     public void OnClickGoTitle()
     {
@@ -57,6 +60,8 @@ public class UIManager : MonoBehaviour
         Betting.BettingWinner = "";
         Betting.IsStart = false;
         Betting.startBet = false;
+        Betting.BettingPlayer = false;
+        //itemScript.OnDice = 1f;
     }
 
     private void SaveMoney()

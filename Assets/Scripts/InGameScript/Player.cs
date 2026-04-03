@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private UIManager uiManager;
 
     public static GameObject[] player;
+    public GameObject eventPlayer;
 
     public float speed = 10f;
 
@@ -22,9 +23,7 @@ public class Player : MonoBehaviour
     public static bool timeStopInvoked = false;
 
     public Text text;
-
     public string colorName; //우승자에 따라 텍스트 색 변환(버그로 작동 안됨)
-
     public static string WinnerName; //우승자 이름
 
 
@@ -36,13 +35,12 @@ public class Player : MonoBehaviour
             text = GameObject.Find("Text").GetComponent<Text>();
         }
         player = GameObject.FindGameObjectsWithTag("Player");
+        //itemScript = GetComponent<ItemScript>();
         Betting_Main = FindObjectOfType<Betting_Main>();
         rigid = GetComponent<Rigidbody2D>();
         StartCoroutine(MoveUp());
         uiManager = FindObjectOfType<UIManager>();
     }
-
-    // Update is called once per frame
     private void FixedUpdate()
     {
         float move = 0f;
@@ -106,14 +104,14 @@ public class Player : MonoBehaviour
             
             if (!First)
             {
-                text.text = "1st:<color=" + colorName + ">" + gameObject.name + "</color>"; //우승자 이름 띄우기(근데 고장남)
+                text.text = "1st:<color=" + colorName + ">" + gameObject.name + "</color>"; //우승자 이름 띄우기(근데 텍스트 색 바꿔주는게 고장남)
 
                 WinnerName = gameObject.name;
                 Invoke("PlayBGM", 0.7f);
                 if (WinnerName == Betting_Main.BettingWinner)
                 {
                     Debug.Log("배팅 성공");
-                    float Reward = Betting_Main.BettingAmount * 2;
+                    float Reward = Betting_Main.BettingAmount * ItemScript.OnDice;
                     Betting_Main.NowMoney += Reward;
                     UpdateMoneyUI();
                 }
@@ -143,5 +141,31 @@ public class Player : MonoBehaviour
             uiManager.EnableCreditUI();
             
         }
+    }
+
+    public void Action0()
+    {
+        Debug.Log("Action0이 호출되었습니다!");  // 메소드 시작에서 로그 추가
+
+        int randomIndex = Random.Range(0, player.Length);
+        GameObject selectedPlayer = player[randomIndex];
+
+        Rigidbody2D selectedPlayerRigidbody = selectedPlayer.GetComponent<Rigidbody2D>();
+
+        if (selectedPlayerRigidbody != null)
+        {
+            selectedPlayerRigidbody.velocity = new Vector2(-5f, selectedPlayerRigidbody.velocity.y);
+            Debug.Log("액션0 실행: " + selectedPlayer.name + "가 역주행 중입니다.");
+        }
+    }
+
+
+    public void Action1()
+    {
+        Debug.Log("액션1");
+    }
+    public void Action2()
+    {
+        Debug.Log("액션2");
     }
 }

@@ -8,31 +8,27 @@ public class Betting_Main : MonoBehaviour
 {
     [Header("버튼")]
     public Button ConfirmBet;
-
-    public InputField BettingText; //배팅값 입력창
-    public Text NowMoneyText; //배팅창에서 텍스트 출력
-    public Text NowMoneyText2; //인게임에서 텍스트 출력
-    public Image BettingPG;
-
-    public float NowMoney = 1000000; //현재 잔액
-    public float BettingAmount; //배팅한 금액
-
-    public bool startBet = false; //배팅 시작
-    public bool IsStart = false; //경마 시작
-
-    private Player Player; //참조
-    private string selectedHorse;
-
     public Button red;
     public Button orange;
     public Button yellow;
     public Button green;
     public Button blue;
 
+    public InputField BettingText; //배팅값 입력창
+    public Text NowMoneyText; //배팅창에서 텍스트 출력
+    public Text NowMoneyText2; //인게임에서 텍스트 출력
+    public Image BettingPG;
+
+    public bool BettingPlayer = false;
     public string BettingWinner = "";
+    public bool startBet = false; //배팅 시작
+    public bool IsStart = false; //경마 시작
+    public float NowMoney = 1000000; //현재 잔액
+    public float BettingAmount; //배팅한 금액
+    private string selectedHorse;
+
     void Start()
     {
-
 
         ConfirmBet.interactable = false;
         ConfirmBet.onClick.AddListener(ConfirmBtn);
@@ -105,33 +101,39 @@ public class Betting_Main : MonoBehaviour
         }
     }
 
-    private void UpdateMoneyUI()
+    public void UpdateMoneyUI()
     {
+        BettingPlayer = true;
         NowMoneyText.text = "남은 잔액: " + NowMoney;
         NowMoneyText2.text = "남은 잔액: " + NowMoney;
     }
     public void redBtn()
     {
+        BettingPlayer = true;
         BettingWinner = "Red";
         Debug.Log("오브젝트이름: " + BettingWinner);
     }
     public void orangeBtn()
     {
+        BettingPlayer = true;
         BettingWinner = "Orange";
         Debug.Log("오브젝트이름: " + BettingWinner);
     }
     public void yellowBtn()
     {
+        BettingPlayer = true;
         BettingWinner = "Yellow";
         Debug.Log("오브젝트이름: " + BettingWinner);
     }
     public void greenBtn()
     {
+        BettingPlayer = true;
         BettingWinner = "Green";
         Debug.Log("오브젝트이름: " + BettingWinner);
     }
     public void blueBtn()
     {
+        BettingPlayer = true;
         BettingWinner = "Blue";
         Debug.Log("오브젝트이름: " + BettingWinner);
     }

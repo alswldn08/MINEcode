@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b23420aee528684429c8f964e2030829, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -302,9 +302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7993a8ad50a75ed479980b1d4a06a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundSource: {fileID: 0}
-  EffectSource: {fileID: 0}
+  SoundSource: {fileID: 560537783329264255}
+  EffectSource: {fileID: 695430515858635639}
   BackGroundSoundSlider: {fileID: 0}
   EffectSoundSlider: {fileID: 0}
-  SoundPlayList: []
-  EffectPlayList: []
+  SoundPlayList:
+  - {fileID: 8300000, guid: b23420aee528684429c8f964e2030829, type: 3}
+  EffectPlayList:
+  - {fileID: 8300000, guid: 406aa18ba4725a143b2df41eed115a68, type: 3}
