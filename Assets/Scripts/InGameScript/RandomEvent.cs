@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,6 @@ public class EventLineCollision : MonoBehaviour
     {
         if (collider.CompareTag("EventLine") && !hasCollided)
         {
-            Debug.Log("Ãæµ¹ °¨ÁöµÊ");
 
             hasCollided = true;
             int randomValue = Random.Range(0, 3);

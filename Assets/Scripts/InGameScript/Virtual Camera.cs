@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +8,14 @@ public class VirtualCamera : MonoBehaviour
 {
     private Player player;
 
-    [Header("½ÃÁ¡ ÀÌµ¿")]
+    [Header("Button")]
     public Button plyer0;
     public Button plyer1;
     public Button plyer2;
     public Button plyer3;
     public Button plyer4;
 
-    [Header("Ä«¸Ş¶ó")]
+    [Header("VirtualCamera")]
     public CinemachineVirtualCamera view0;
     public CinemachineVirtualCamera view1;
     public CinemachineVirtualCamera view2;
@@ -50,7 +50,7 @@ public class VirtualCamera : MonoBehaviour
 
         if (distanceText == null)
         {
-            Debug.LogError("Distance Text UI is not assigned!");
+            Debug.LogError("í…ìŠ¤íŠ¸ ì—†ìŒ");
         }
     }
 
@@ -92,7 +92,7 @@ public class VirtualCamera : MonoBehaviour
 
             if (distanceText != null)
             {
-                distanceText.text = "°á½Â¼±: " + distance.ToString("F2") + "M";
+                distanceText.text = "ë‚¨ì€ ê±°ë¦¬: " + distance.ToString("F2") + "M";
             }
         }
     }

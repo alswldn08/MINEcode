@@ -1,4 +1,4 @@
-using System;
+癤퓎sing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +10,15 @@ public class SoundManager : MonoBehaviour
     private static SoundManager instance;
     public static SoundManager Instance { get { return instance; } }
 
-    public AudioSource SoundSource;//배경음 소리
-    public AudioSource EffectSource;//효과음 소리
+    public AudioSource SoundSource;
+    public AudioSource EffectSource;
 
-    public Slider BackGroundSoundSlider;//배경음 소리 슬라이더
-    public Slider EffectSoundSlider;//이팩트 소리 슬라이더
+    public Slider BackGroundSoundSlider;
+    public Slider EffectSoundSlider;
 
-    public List<AudioClip> SoundPlayList;//배경음 리스트
-    public List<AudioClip> EffectPlayList;//효과음 리스트
+    public List<AudioClip> SoundPlayList;
+    public List<AudioClip> EffectPlayList;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (instance == null)
@@ -41,7 +40,6 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    //소리 출력
     public void PlaySound(int Index)
     {
         if (SoundPlayList != null)
@@ -59,7 +57,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //소리 조절
     public void SetVolumSound(float value)
     {
         SoundSource.volume = value;

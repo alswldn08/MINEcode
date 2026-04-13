@@ -1,4 +1,4 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +13,6 @@ public class ItemScript : MonoBehaviour
     public static float OnDice = 2f;
     private bool diceCheck = false;
     private bool potionCheck = false;
-    // Start is called before the first frame update
     void Start()
     {
         Betting = GetComponent<Betting_Main>();
@@ -49,16 +48,11 @@ public class ItemScript : MonoBehaviour
 
     public void DiceBtn()
     {
-        if (Betting.NowMoney >= 100000f) // 충분한 돈이 있을 때만 실행
+        if (Betting.NowMoney >= 100000f)
         {
             diceCheck = true;
             Betting.NowMoney -= 100000f;
-            Betting.UpdateMoneyUI(); // UI 업데이트 호출
-            Debug.Log("주사위 구매! 남은 잔액: " + Betting.NowMoney);
-        }
-        else
-        {
-            Debug.Log("잔액이 부족합니다!");
+            Betting.UpdateMoneyUI();
         }
     }
 
@@ -68,12 +62,7 @@ public class ItemScript : MonoBehaviour
         {
             potionCheck = true;
             Betting.NowMoney -= 1f;
-            Betting.UpdateMoneyUI(); // UI 업데이트 호출
-            Debug.Log("??? 구매! 남은 잔액: " + Betting.NowMoney);
-        }
-        else
-        {
-            Debug.Log("잔액이 부족합니다!");
+            Betting.UpdateMoneyUI();
         }
     }
 

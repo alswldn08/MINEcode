@@ -1,0 +1,5 @@
+[*]
+charset = utf-8-bom
+
+[*.xml]
+indent_style = space

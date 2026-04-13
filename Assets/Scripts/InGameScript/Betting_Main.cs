@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Betting_Main : MonoBehaviour
 {
-    [Header("¹öÆ°")]
+    [Header("Betting Button")]
     public Button ConfirmBet;
     public Button red;
     public Button orange;
@@ -14,17 +14,17 @@ public class Betting_Main : MonoBehaviour
     public Button green;
     public Button blue;
 
-    public InputField BettingText; //¹èÆÃ°ª ÀÔ·ÂÃ¢
-    public Text NowMoneyText; //¹èÆÃÃ¢¿¡¼­ ÅØ½ºÆ® Ãâ·Â
-    public Text NowMoneyText2; //ÀÎ°ÔÀÓ¿¡¼­ ÅØ½ºÆ® Ãâ·Â
+    public InputField BettingText; //ë°°íŒ… ê¸ˆì•¡ ì…ë ¥ì°½
+    public Text NowMoneyText; //í˜„ì¬ ë‚¨ì€ ê¸ˆì•¡(ì¸ê²Œì„)
+    public Text NowMoneyText2; //í˜„ì¬ ë‚¨ì€ ê¸ˆì•¡(ë°°íŒ…ì°½)
     public Image BettingPG;
 
     public bool BettingPlayer = false;
     public string BettingWinner = "";
-    public bool startBet = false; //¹èÆÃ ½ÃÀÛ
-    public bool IsStart = false; //°æ¸¶ ½ÃÀÛ
-    public float NowMoney = 1000000; //ÇöÀç ÀÜ¾×
-    public float BettingAmount; //¹èÆÃÇÑ ±İ¾×
+    public bool startBet = false;
+    public bool IsStart = false;
+    public float NowMoney = 1000000;
+    public float BettingAmount;
     private string selectedHorse;
 
     void Start()
@@ -38,7 +38,6 @@ public class Betting_Main : MonoBehaviour
 
         BettingText.onValueChanged.AddListener(Betting);
 
-        //¹öÆ°
         red.onClick.AddListener(redBtn);
         orange.onClick.AddListener(orangeBtn);
         yellow.onClick.AddListener(yellowBtn);
@@ -59,14 +58,12 @@ public class Betting_Main : MonoBehaviour
             }
             else
             {
-                Debug.Log("ÀÜ¾×ÀÌ ºÎÁ·ÇÏ°Å³ª À¯È¿ÇÏÁö ¾ÊÀº ±İ¾×ÀÔ´Ï´Ù.");
                 ConfirmBet.interactable = false;
             }
         }
         else
         {
             ConfirmBet.interactable = false;
-            Debug.Log("¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
         }
     }
 
@@ -95,47 +92,38 @@ public class Betting_Main : MonoBehaviour
             NowMoney -= BettingAmount;
             UpdateMoneyUI();
         }
-        else
-        {
-            Debug.Log("¹èÆÃ ±İ¾×ÀÌ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù.");
-        }
     }
 
     public void UpdateMoneyUI()
     {
         BettingPlayer = true;
-        NowMoneyText.text = "³²Àº ÀÜ¾×: " + NowMoney;
-        NowMoneyText2.text = "³²Àº ÀÜ¾×: " + NowMoney;
+        NowMoneyText.text = "í˜„ì¬ ë³´ìœ  ê¸ˆì•¡: " + NowMoney;
+        NowMoneyText2.text = "í˜„ì¬ ë³´ìœ  ê¸ˆì•¡: " + NowMoney;
     }
     public void redBtn()
     {
         BettingPlayer = true;
         BettingWinner = "Red";
-        Debug.Log("¿ÀºêÁ§Æ®ÀÌ¸§: " + BettingWinner);
     }
     public void orangeBtn()
     {
         BettingPlayer = true;
         BettingWinner = "Orange";
-        Debug.Log("¿ÀºêÁ§Æ®ÀÌ¸§: " + BettingWinner);
     }
     public void yellowBtn()
     {
         BettingPlayer = true;
         BettingWinner = "Yellow";
-        Debug.Log("¿ÀºêÁ§Æ®ÀÌ¸§: " + BettingWinner);
     }
     public void greenBtn()
     {
         BettingPlayer = true;
         BettingWinner = "Green";
-        Debug.Log("¿ÀºêÁ§Æ®ÀÌ¸§: " + BettingWinner);
     }
     public void blueBtn()
     {
         BettingPlayer = true;
         BettingWinner = "Blue";
-        Debug.Log("¿ÀºêÁ§Æ®ÀÌ¸§: " + BettingWinner);
     }
 
 }

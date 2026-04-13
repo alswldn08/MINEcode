@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class TitleUIManager : MonoBehaviour
 {
-    [Header("실행 버튼")]
+    [Header("OpenButton")]
     public Button StartBtn;
     public Button SettingBtn;
     public Button HelpBtn;
-    [Header("닫기 버튼")]
+    [Header("CloseButton")]
     public Button ExitHelpBtn;
     public Button ExitSettingBtn;
-    [Header("이미지")]
+    [Header("Page")]
     public Image SettingPG;
     public Image HelpPG;
     

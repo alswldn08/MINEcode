@@ -1,4 +1,4 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -8,13 +8,13 @@ using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("메뉴")]
+    [Header("Button")]
     public Button MenuBtn;
     public Button ExitMenuBtn;
     public Button GoTitle;
     public Button RePlay;
 
-    [Header("이미지")]
+    [Header("Page")]
     public Image MenuPG;
     public Image creditPG;
     public Image EndingPG;
@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
     private Betting_Main Betting;
     private ItemScript itemScript;
 
-    // Start is called before the first frame update
     void Start()
     {
         itemScript = GetComponent<ItemScript>();
@@ -53,8 +52,8 @@ public class UIManager : MonoBehaviour
     }
     private void OnClickRePlay()
     {
-        SaveMoney(); // 현재 잔액 저장
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 씬 재로드
+        SaveMoney();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
         Betting.BettingAmount = 0;
         Betting.BettingWinner = "";
@@ -66,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void SaveMoney()
     {
-        PlayerPrefs.SetFloat("NowMoney", Betting.NowMoney); // NowMoney를 PlayerPrefs에 저장
+        PlayerPrefs.SetFloat("NowMoney", Betting.NowMoney);
         PlayerPrefs.Save();
     }
 
@@ -84,7 +83,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
     public void EnableCreditUI()
     {
         if (creditPG != null)
@@ -108,7 +106,7 @@ public class UIManager : MonoBehaviour
     {
         if (player != null)
         {
-            player.ONcredit(); // Player의 ONcredit
+            player.ONcredit();
         }
     }
 }
